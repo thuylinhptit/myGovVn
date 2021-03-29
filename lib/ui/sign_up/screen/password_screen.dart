@@ -24,7 +24,7 @@ class PassWordScreen extends GetWidget {
               children: [
                 Text(
                   "Mật khẩu tài khoản",
-                  style: TextStyle(fontSize: 28, color: Colors.white),
+                  style: TextStyle(fontSize: 28, color: Colors.white, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -45,7 +45,7 @@ class PassWordScreen extends GetWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0)),
                     hintText: 'Tạo mật khẩu',
-                    hintStyle: TextStyle(color: Colors.grey),
+                    hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                     suffixIcon: _passController1.text.length > 0
                         ? (_.check == true
                             ? IconButton(
@@ -80,7 +80,7 @@ class PassWordScreen extends GetWidget {
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0)),
                   hintText: 'Nhắc lại mật khẩu',
-                  hintStyle: TextStyle(color: Colors.grey),
+                  hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                   suffixIcon: _passController2.text.length > 0
                       ? (_.check == true
                           ? IconButton(
@@ -111,7 +111,7 @@ class PassWordScreen extends GetWidget {
                     child: Center(
                       child: Text(
                         "ĐĂNG KÝ",
-                        style: TextStyle(color: Colors.black, fontSize: 16),
+                        style: TextStyle(color: Colors.black, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                       ),
                     ),
                     shape: new RoundedRectangleBorder(
@@ -130,7 +130,7 @@ class PassWordScreen extends GetWidget {
                     child: Center(
                       child: Text(
                         "ĐĂNG KÝ",
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                        style: TextStyle(color: Colors.grey, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                       ),
                     ),
                     shape: new RoundedRectangleBorder(

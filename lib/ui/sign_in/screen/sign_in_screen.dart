@@ -80,7 +80,7 @@ class SignIn extends GetWidget{
                                       : null,
                                 ),
                               ),
-                              Text( "Chỉ được điền số", style: TextStyle(fontSize: 15, color: Colors.red),)
+                              Text( "Chỉ được điền số", style: TextStyle(fontSize: 15, color: Colors.red, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),)
                             ],
                       ) : Column(
                             children: [
@@ -98,7 +98,7 @@ class SignIn extends GetWidget{
                                       borderRadius: BorderRadius.circular(10.0)
                                   ),
                                   hintText: 'Số điện thoại của bạn',
-                                  hintStyle: TextStyle( color: Colors.grey),
+                                  hintStyle: TextStyle( color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                                 ),
                               ),
                             ],
@@ -110,11 +110,11 @@ class SignIn extends GetWidget{
                           text: TextSpan(
                               children: [
                                 TextSpan(text: "Bằng việc chọn Tiếp tục, bạn hãy đồng ý với",
-                                    style: TextStyle( color: Colors.white, fontSize: 15)),
-                                TextSpan( text: " Điều khoản & Điều kiện",  style: TextStyle( color: Colors.yellowAccent, fontSize: 15,) ),
-                                TextSpan( text: " cùng ",  style: TextStyle( color: Colors.white , fontSize: 15,) ),
-                                TextSpan( text: "Chính sách bảo mật và chi sẻ thông tin",  style: TextStyle( color: Colors.yellowAccent, fontSize: 15,) ),
-                                TextSpan( text: " của MYGOVVN",  style: TextStyle( color: Colors.white, fontSize: 15,) ),
+                                    style: TextStyle( color: Colors.white, fontSize: 15, fontFamily: 'Quicksand', fontWeight: FontWeight.w400)),
+                                TextSpan( text: " Điều khoản & Điều kiện",  style: TextStyle( color: Colors.yellowAccent, fontSize: 15, fontFamily: 'Quicksand', fontWeight: FontWeight.w400) ),
+                                TextSpan( text: " cùng ",  style: TextStyle( color: Colors.white , fontSize: 15, fontFamily: 'Quicksand', fontWeight: FontWeight.w400) ),
+                                TextSpan( text: "Chính sách bảo mật và chi sẻ thông tin",  style: TextStyle( color: Colors.yellowAccent, fontSize: 15, fontFamily: 'Quicksand', fontWeight: FontWeight.w400) ),
+                                TextSpan( text: " của MYGOVVN",  style: TextStyle( color: Colors.white, fontSize: 15, fontFamily: 'Quicksand', fontWeight: FontWeight.w400) ),
                               ]
                           ),
                     ),
@@ -129,7 +129,7 @@ class SignIn extends GetWidget{
                               Get.to(ScreenOTP(), arguments: str);
                             },
                             child: Center(
-                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.black, fontSize: 16 ),),
+                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.black, fontSize: 16 , fontFamily: 'Quicksand', fontWeight: FontWeight.w700),),
                             ),
                             shape: RoundedRectangleBorder(side: BorderSide(color: Colors.blue[200], width: 1) ,
                               borderRadius: new BorderRadius.circular(10.0),),
@@ -143,7 +143,7 @@ class SignIn extends GetWidget{
                               print(_textEditingController.text);
                             },
                             child: Center(
-                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.grey, fontSize: 16 , fontFamily: 'Quicksand'),),
+                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.grey, fontSize: 16 , fontFamily: 'Quicksand', fontWeight: FontWeight.w700),),
                             ),
                             shape: new RoundedRectangleBorder(side: BorderSide(color: Colors.white, width: 1) ,
                               borderRadius: new BorderRadius.circular(10.0),),

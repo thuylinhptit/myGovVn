@@ -26,14 +26,14 @@ class ConfirmScreen extends GetWidget{
              Padding(
                padding: EdgeInsets.only(top: 0.04*height, ),
                child: Text(
-                 "Xác thực tài khoản", style: TextStyle( color: Colors.white, fontSize: 28) ,
+                 "Xác thực tài khoản", style: TextStyle( color: Colors.white, fontSize: 28, fontFamily: 'Quicksand', fontWeight: FontWeight.w500) ,
                ),
              ),
              Padding(
                padding: EdgeInsets.only(bottom: 0.05*height, ),
                child: Text(
                  "Chọn phương thức xác thực Chứng minh nhân dân hoặc Thẻ căn cước công dân của bạn",
-                 style: TextStyle( color: Colors.white, fontSize: 16) ,
+                 style: TextStyle( color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w400) ,
                ),
              ),
              Padding(
@@ -44,7 +44,7 @@ class ConfirmScreen extends GetWidget{
                      padding: EdgeInsets.only(right: width*0.02),
                      child: Image(image: AssetImage("image/icon1.png"), height: width*0.2, width: width*0.2,),
                    ),
-                   Text("Giao tiếp NFC",style: TextStyle( color: Colors.white, fontSize: 16),)
+                   Text("Giao tiếp NFC",style: TextStyle( color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),)
                  ],
                ),
              ),
@@ -57,7 +57,7 @@ class ConfirmScreen extends GetWidget{
                      padding: EdgeInsets.only(right: width*0.02),
                      child: Image(image: AssetImage("image/icon2.png"), height: width*0.2, width: width*0.2,),
                    ),
-                   Text("Quét mã QR trên Thẻ CCCD",style: TextStyle( color: Colors.white, fontSize: 16),)
+                   Text("Quét mã QR trên Thẻ CCCD",style: TextStyle( color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),)
                  ],
                ),
              ),
@@ -70,7 +70,7 @@ class ConfirmScreen extends GetWidget{
                      padding: EdgeInsets.only(right: width*0.02),
                      child: Image(image: AssetImage("image/icon3.png"), height: width*0.2, width: width*0.2,),
                    ),
-                   Text("Chụp ảnh CMND/CCCD",style: TextStyle( color: Colors.white, fontSize: 16),)
+                   Text("Chụp ảnh CMND/CCCD",style: TextStyle( color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),)
                  ],
                ),
              ),

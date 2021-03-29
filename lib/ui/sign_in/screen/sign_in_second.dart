@@ -47,7 +47,7 @@ class SignInSecond extends GetWidget {
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0)),
                             hintText: 'Nhập mật khẩu',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                             suffixIcon: textEditingController.text.length > 0
                                 ? (_.check == true
                                     ? IconButton(
@@ -75,7 +75,7 @@ class SignInSecond extends GetWidget {
                         children: [
                           Text(
                             "Đổi lại số điện thoại",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -84,7 +84,7 @@ class SignInSecond extends GetWidget {
                         children: [
                           Text(
                             "Quên mật khẩu",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                           ),
                         ],
                       )
@@ -102,7 +102,7 @@ class SignInSecond extends GetWidget {
                         child: Center(
                           child: Text(
                             "ĐĂNG NHẬP",
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            style: TextStyle(color: Colors.black, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                           ),
                         ),
                         shape: new RoundedRectangleBorder(
@@ -120,7 +120,7 @@ class SignInSecond extends GetWidget {
                         child: Center(
                           child: Text(
                             "TIẾP TỤC",
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            style: TextStyle(color: Colors.grey, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                           ),
                         ),
                         shape: new RoundedRectangleBorder(

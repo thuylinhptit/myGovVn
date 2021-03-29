@@ -24,7 +24,7 @@ class ScreenOTP extends GetWidget {
               children: [
                 Text(
                   "Mã xác thực OTP",
-                  style: TextStyle(fontSize: 28, color: Colors.white),
+                  style: TextStyle(fontSize: 28, color: Colors.white, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -34,7 +34,7 @@ class ScreenOTP extends GetWidget {
                 text: TextSpan(children: [
                   TextSpan(
                     text: "Nhập mã xác nhận OTP vừa được gửi đến số ",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                   ),
                   TextSpan(
                     text: Get.arguments,
@@ -60,7 +60,7 @@ class ScreenOTP extends GetWidget {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                           hintText: '000 000',
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                           suffixIcon: _textEditingController.text.length > 0
                               ? IconButton(
                               icon: Icon(
@@ -72,7 +72,7 @@ class ScreenOTP extends GetWidget {
                         ),
                       ),
                       Center(
-                        child: Text("Gửi lại OTP (0:13)", style: TextStyle( fontSize: 16, color: Colors.white),),
+                        child: Text("Gửi lại OTP (0:13)", style: TextStyle( fontSize: 16, color: Colors.white, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),),
                       )
                     ],
                   )
@@ -88,7 +88,7 @@ class ScreenOTP extends GetWidget {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         hintText: '000 000',
-                        hintStyle: TextStyle(color: Colors.grey),
+                        hintStyle: TextStyle(color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                         suffixIcon: _textEditingController.text.length > 0
                             ? IconButton(
                                 icon: Icon(
@@ -107,7 +107,7 @@ class ScreenOTP extends GetWidget {
                     children: [
                       Text(
                         "Đổi lại số điện thoại",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -116,7 +116,7 @@ class ScreenOTP extends GetWidget {
                     children: [
                       Text(
                         "Gửi lại OTP",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                       ),
                     ],
                   )
@@ -135,7 +135,7 @@ class ScreenOTP extends GetWidget {
                         child: Center(
                           child: Text(
                             "TIẾP TỤC",
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            style: TextStyle(color: Colors.black, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                           ),
                         ),
                         shape: new RoundedRectangleBorder(
@@ -154,7 +154,7 @@ class ScreenOTP extends GetWidget {
                         child: Center(
                           child: Text(
                             "TIẾP TỤC",
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                            style: TextStyle(color: Colors.grey, fontSize: 16, fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                           ),
                         ),
                         shape: new RoundedRectangleBorder(
