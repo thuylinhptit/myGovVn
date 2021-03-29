@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_mygovvn/ui/sign_in/screen/sign_in_screen.dart';
-import 'package:ui_mygovvn/ui/sign_in/screen/sign_in_second.dart';
+import 'package:ui_mygovvn/ui/homepage/homepage_screen.dart';
+
 
 void main (){
   runApp(
@@ -16,7 +16,7 @@ class MyApp  extends StatelessWidget{
       ) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignIn(),
+      home: SingleChildScrollView(child: HomePageScreen()),
     );
   }
 

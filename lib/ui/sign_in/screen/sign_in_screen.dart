@@ -30,7 +30,7 @@ class SignIn extends GetWidget{
                       children: [
                         Container(
                           child: Text(
-                            "Nhập số điện thoại", style: TextStyle( fontSize: 28, color: Colors.white),
+                            "Nhập số điện thoại", style: TextStyle( fontSize: 28, color: Colors.white, fontFamily: 'Quicksand', fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
@@ -50,7 +50,7 @@ class SignIn extends GetWidget{
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                             hintText: 'Số điện thoại của bạn',
-                            hintStyle: TextStyle( color: Colors.grey),
+                            hintStyle: TextStyle( color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                             suffixIcon: _textEditingController.text.length > 0
                                 ? IconButton(icon: Icon(Icons.cancel,), onPressed: () => _textEditingController.clear())
                                 : null,
@@ -71,7 +71,7 @@ class SignIn extends GetWidget{
                                       borderRadius: BorderRadius.circular(10.0)
                                   ),
                                   hintText: 'Số điện thoại của bạn',
-                                  hintStyle: TextStyle( color: Colors.grey),
+                                  hintStyle: TextStyle( color: Colors.grey, fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
                                   suffixIcon: _textEditingController.text.length > 0
                                       ? IconButton(icon: Icon(Icons.cancel,), onPressed: (){
                                     _textEditingController.clear();
@@ -143,7 +143,7 @@ class SignIn extends GetWidget{
                               print(_textEditingController.text);
                             },
                             child: Center(
-                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.grey, fontSize: 16 ),),
+                              child: Text("TIẾP TỤC", style: TextStyle(color: Colors.grey, fontSize: 16 , fontFamily: 'Quicksand'),),
                             ),
                             shape: new RoundedRectangleBorder(side: BorderSide(color: Colors.white, width: 1) ,
                               borderRadius: new BorderRadius.circular(10.0),),
@@ -151,7 +151,7 @@ class SignIn extends GetWidget{
 
                       );
                     }),
-                    SizedBox(height: height*0.1,),
+                    SizedBox(height: height*0.25,),
                   ],
                 ),
               ),

@@ -15,11 +15,11 @@ class Detailscreen extends GetWidget {
           "diaChi", "trangThai", "0123456"),
       Bhxh(2, DateTime.now(), "Nguyễn Thanh Tùng", "Nam", "0010200000",
           "diaChi", "trangThai", "0123456"),
-      // Bhxh(3, DateTime.now(), "Nguyễn Thanh Tùng", "Nam", "0010200000", "diaChi", "trangThai", "0123456")
     ];
     return Scaffold(
         appBar: AppBar(
-          title: Text('Tra cứu mã số bảo hiểm xã hội'),
+          title: Text('Tra cứu mã số bảo hiểm xã hội', style: TextStyle(fontFamily: 'Quicksand',
+              fontWeight: FontWeight.w400),),
           flexibleSpace: Image(
             image: AssetImage('image/appbar.png'),
             fit: BoxFit.cover,

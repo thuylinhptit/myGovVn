@@ -1,10 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:ui_mygovvn/ui/bhxh/bhxh_item.dart';
 import 'package:ui_mygovvn/ui/bhxh/controller_bhxh.dart';
 import 'package:ui_mygovvn/ui/bhxh/detail_screen.dart';
-
+const color1 = const Color(0xFF8898AA);
+const color2 = const Color(0xFFC6C6C8);
+const color3 = const Color(0xFF1E5AAA);
 class BaoHiemScreen extends StatelessWidget {
   TextEditingController hoVaTenController = TextEditingController() ;
   TextEditingController soCMND = TextEditingController() ;
@@ -19,7 +22,7 @@ class BaoHiemScreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Tra cứu mã số bảo hiểm xã hội'),
+          title: Text('Tra cứu mã số bảo hiểm xã hội', style: TextStyle( fontSize: 18,fontFamily: 'Quicksand', fontWeight: FontWeight.w500),),
           flexibleSpace: Image(
             image: AssetImage('image/appbar.png'),
             fit: BoxFit.cover,
@@ -43,12 +46,11 @@ class BaoHiemScreen extends StatelessWidget {
               "Bảo hiểm xã hội Việt Nam",
               style: TextStyle(
                   color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+                  fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
             ),
             subtitle: Text(
               "Đơn vị ban hành",
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+              style: TextStyle(color: color1, fontSize: 14,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
             ),
           ),
         ),
@@ -69,9 +71,9 @@ class BaoHiemScreen extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(text: "Tỉnh/Thành phố",
-                      style: TextStyle(color: Colors.grey, fontSize: 18),),
+                      style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),),
                     TextSpan(text: "*",
-                      style: TextStyle(color: Colors.red, fontSize: 18),)
+                      style: TextStyle(color: Colors.red, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),)
                   ]
                 ),
               ),
@@ -83,17 +85,15 @@ class BaoHiemScreen extends StatelessWidget {
                   height: width * 0.15,
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                         color: Colors.grey, style: BorderStyle.solid, width: 1),
                   ),
                   child: Center(
                       child: DropdownButtonFormField(
                         value: 'Chọn Tỉnh/Thành phố',
-                        icon: RotatedBox(quarterTurns: 3,child: Icon(Icons.arrow_back_ios)),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        icon: Icon(Icons.keyboard_arrow_down_outlined, color: color2,),
+                        style: TextStyle(color: Colors.black, fontSize: 16),
                         decoration: InputDecoration.collapsed(
                           hintText: '',
                         ),
@@ -113,7 +113,7 @@ class BaoHiemScreen extends StatelessWidget {
               ),
               Text(
                 "Quận/Huyện",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -123,17 +123,15 @@ class BaoHiemScreen extends StatelessWidget {
                   height: width * 0.15,
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                         color: Colors.grey, style: BorderStyle.solid, width: 1),
                   ),
                   child: Center(
                     child: DropdownButtonFormField(
                       value: 'Chọn Quận/Huyện',
-                      icon: RotatedBox(quarterTurns: 3,child: Icon(Icons.arrow_back_ios)),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      icon: Icon(Icons.keyboard_arrow_down_outlined, color: color2,),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                       decoration: InputDecoration.collapsed(
                         hintText: '',
                       ),
@@ -153,7 +151,7 @@ class BaoHiemScreen extends StatelessWidget {
               ),
               Text(
                 "Xã/Phường",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -163,17 +161,15 @@ class BaoHiemScreen extends StatelessWidget {
                   height: width * 0.15,
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                         color: Colors.grey, style: BorderStyle.solid, width: 1),
                   ),
                   child: Center(
                     child: DropdownButtonFormField(
                       value: 'Chọn Xã/Phường',
-                      icon: RotatedBox(quarterTurns: 3,child: Icon(Icons.arrow_back_ios)),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      icon: Icon(Icons.keyboard_arrow_down_outlined, color: color2,),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                       decoration: InputDecoration.collapsed(
                         hintText: '',
                       ),
@@ -193,7 +189,7 @@ class BaoHiemScreen extends StatelessWidget {
               ),
               Text(
                 "Thôn/Xóm",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -203,17 +199,15 @@ class BaoHiemScreen extends StatelessWidget {
                   height: width * 0.15,
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                         color: Colors.grey, style: BorderStyle.solid, width: 1),
                   ),
                   child: Center(
                     child: DropdownButtonFormField(
                       value: 'Chọn Thôn/Xóm',
-                      icon: RotatedBox(quarterTurns: 3,child: Icon(Icons.arrow_back_ios)),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      icon: Icon(Icons.keyboard_arrow_down_outlined, color: color2,),
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                       decoration: InputDecoration.collapsed(
                         hintText: '',
                       ),
@@ -235,9 +229,9 @@ class BaoHiemScreen extends StatelessWidget {
                 text: TextSpan(
                     children: [
                       TextSpan(text: "Họ và tên ",
-                        style: TextStyle(color: Colors.grey, fontSize: 18),),
+                        style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),),
                       TextSpan(text: "*",
-                        style: TextStyle(color: Colors.red, fontSize: 18),)
+                        style: TextStyle(color: Colors.red, fontSize: 16),)
                     ]
                 ),
               ),
@@ -246,7 +240,7 @@ class BaoHiemScreen extends StatelessWidget {
                   height: width * 0.15,
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                           color: Colors.grey,
                           style: BorderStyle.solid,
@@ -258,7 +252,7 @@ class BaoHiemScreen extends StatelessWidget {
                     },
                     decoration: InputDecoration(
                         hintText: 'Nhập họ và tên',
-                        hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
                         border: InputBorder.none),
                   ),
                 );
@@ -268,13 +262,13 @@ class BaoHiemScreen extends StatelessWidget {
               ),
               Text(
                 "Số CMND/CCCD",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: color1, fontSize: 16,fontFamily: 'Quicksand', fontWeight: FontWeight.w400),
               ),
               Container(
                 height: width * 0.15,
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                         color: Colors.grey,
                         style: BorderStyle.solid,
@@ -286,7 +280,7 @@ class BaoHiemScreen extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       hintText: 'Nhập số CMND/CCCD',
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                      hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
                       border: InputBorder.none),
                 ),
               ),
@@ -308,7 +302,7 @@ class BaoHiemScreen extends StatelessWidget {
                         onPressed: null,
                         child: Text(
                           "NHẬP LẠI",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.black,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),
@@ -316,20 +310,20 @@ class BaoHiemScreen extends StatelessWidget {
                       width: 0.05*width,
                     ),
                     ButtonTheme(
-                      buttonColor: Colors.blue,
+                      buttonColor: color3,
                       height: width*0.14,
                       minWidth: width*0.4,
                       child: FlatButton(
                         shape: RoundedRectangleBorder(
                           //  side: BorderSide( color: Colors.black, width: 1),
                             borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
+                        color: color3,
                         onPressed: (){
                           Get.to(Detailscreen(), );
                         },
                         child: Text(
                           "TRA CỨU",
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.white,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),
@@ -344,12 +338,12 @@ class BaoHiemScreen extends StatelessWidget {
                       child: RaisedButton(
                         //    height: 0.15 * width,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.black,
+                            borderRadius: BorderRadius.circular(8)),
+                        color: color2,
                         onPressed: null,
                         child: Text(
                           "NHẬP LẠI",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),
@@ -361,12 +355,12 @@ class BaoHiemScreen extends StatelessWidget {
                       minWidth: width*0.4,
                       child: RaisedButton(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.grey,
+                            borderRadius: BorderRadius.circular(8)),
+                        color: color2,
                         onPressed: null,
                         child: Text(
                           "TRA CỨU",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),

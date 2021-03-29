@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ui_mygovvn/ui/setting/controller/controller_change_pass.dart';
+import 'package:ui_mygovvn/ui/sign_up/controller/controller_password.dart';
 
 class ChangePassScreen extends GetWidget {
-  TextEditingController controller1 = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
-  TextEditingController controller3 = TextEditingController();
+  TextEditingController _passController1 = TextEditingController();
+  TextEditingController _passController2 = TextEditingController();
   ChangePassController changePassController = Get.put(ChangePassController());
 
   @override
@@ -14,134 +14,135 @@ class ChangePassScreen extends GetWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Image.asset(
-          "image/appbar.png",
-          fit: BoxFit.cover,
-        ),
-        title: Text("Cài đặt"),
-        actions: [
-          IconButton(
-              icon: Icon(
-                Icons.help_outline,
-                color: Colors.white,
-              ),
-              onPressed: null)
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Padding(
-          padding: EdgeInsets.only(left: 0.03 * width, right: 0.03 * width),
-          child: Column(
-            children: [
-              SizedBox(
-                height: height * 0.02,
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        top: 0.01 * width,
-                        left: 0.03 * width,
-                        right: 0.03 * width),
-                    child: Stack(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Mật khẩu cũ",
-                              style: TextStyle(color: Colors.blue),
-                            ),
-                            GetBuilder<ChangePassController>(builder: (_){
-                              return TextField(
-                                onChanged: (text) {
-                                  changePassController.checkText(text);
-                                },
-                                controller: controller1,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  hintText: 'Nhắc mật khẩu cũ',
-                                  hintStyle: TextStyle(color: Colors.grey),
-                                ),
-                              );
-                            })
-                          ],
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("image/background.png"), fit: BoxFit.cover)),
+        padding: EdgeInsets.only(left: 0.06*width, top: 0.2*height, right: 0.06*width),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  "Mật khẩu tài khoản",
+                  style: TextStyle(fontSize: 28, color: Colors.white),
+                ),
+              ],
+            ),
+            GetBuilder<PassWordController>(builder: (_) {
+              print(_.check);
+              return Padding(
+                padding: EdgeInsets.only( top: 0.02*height, bottom: 0.01*height),
+                child: TextField(
+                  onChanged: (text) {
+                    changePassController.checkText(text);
+                    //  passWordController.displayIconEyes();
+                  },
+                  controller: _passController1,
+                  obscureText: _.check == true ? false : true,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    hintText: 'Tạo mật khẩu',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    suffixIcon: _passController1.text.length > 0
+                        ? (_.check == true
+                        ? IconButton(
+                        icon: Icon(
+                          Icons.remove_red_eye_sharp,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GetBuilder<ChangePassController>(builder: (_){
-                              return IconButton(
-                                  icon: Icon(Icons.remove_red_eye),
-                                  onPressed: null);
-                            })
-                          ],
-                        )
-                      ],
+                        onPressed: () {
+                          _.displayIconEyes();
+                        })
+                        : IconButton(
+                        icon: Icon(Icons.visibility_off),
+                        onPressed: () {
+                          _.displayIconEyes();
+                        }))
+                        : null,
+                  ),
+                ),
+              );
+            }),
+            GetBuilder<PassWordController>(builder: (_) {
+              print(_.check2);
+              return TextField(
+                onChanged: (text) {
+                  changePassController.checkText(text);
+                  //  passWordController.displayIconEyes();
+                },
+                controller: _passController2,
+                obscureText: _.check2 == true ? true : false,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  hintText: 'Nhắc lại mật khẩu',
+                  hintStyle: TextStyle(color: Colors.grey),
+                  suffixIcon: _passController2.text.length > 0
+                      ? (_.check == true
+                      ? IconButton(
+                      icon: Icon(
+                        Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        _.nonDisplayIconEyes();
+                      })
+                      : IconButton(
+                      icon: Icon(Icons.remove_red_eye_sharp),
+                      onPressed: () {
+                        _.nonDisplayIconEyes();
+                      }))
+                      : null,
+                ),
+              );
+            }),
+            Spacer(),
+            GetBuilder<PassWordController>(builder: (_){
+              return _passController1.text == _passController2.text && _passController1.text.length > 0 ? ButtonTheme(
+                height: 50,
+                child: FlatButton(
+                  color: Colors.blue[200],
+                  onPressed: () {
+                    // print(_textEditingController.text);
+                  },
+                  child: Center(
+                    child: Text(
+                      "ĐĂNG KÝ",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                     ),
-                  )),
-              Spacer(),
-              Text("Quên mật khẩu"),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              GetBuilder<ChangePassController>(builder: (_) {
-                return controller1.text.length > 0
-                    ? ButtonTheme(
-                        height: 50,
-                        child: FlatButton(
-                          color: Colors.blue,
-                          onPressed: () {
-                            // print(_textEditingController.text);
-                          },
-                          child: Center(
-                            child: Text(
-                              "XÁC NHẬN",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                          ),
-                          shape: new RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white, width: 1),
-                            borderRadius: new BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      )
-                    : ButtonTheme(
-                        height: 50,
-                        child: FlatButton(
-                          color: Colors.grey,
-                          onPressed: () {
-                            // print(_textEditingController.text);
-                          },
-                          child: Center(
-                            child: Text(
-                              "XÁC NHẬN",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                          ),
-                          shape: new RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white, width: 1),
-                            borderRadius: new BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      );
-              }),
-              SizedBox(
-                height: height * 0.12,
-              )
-            ],
-          ),
+                  ),
+                  shape: new RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.white, width: 1),
+                    borderRadius: new BorderRadius.circular(10.0),
+                  ),
+                ),
+
+              ) :ButtonTheme(
+                height: 50,
+                child: FlatButton(
+                  color: Colors.white,
+                  onPressed: () {
+                    // print(_textEditingController.text);
+                  },
+                  child: Center(
+                    child: Text(
+                      "ĐĂNG KÝ",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    ),
+                  ),
+                  shape: new RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.white, width: 1),
+                    borderRadius: new BorderRadius.circular(10.0),
+                  ),
+                ),
+              );
+            }),
+            SizedBox( height: height*0.1,)
+          ],
         ),
       ),
     );
