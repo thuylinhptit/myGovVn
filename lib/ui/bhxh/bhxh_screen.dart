@@ -299,7 +299,11 @@ class BaoHiemScreen extends StatelessWidget {
                           side: BorderSide( color: Colors.black, width: 1),
                             borderRadius: BorderRadius.circular(10)),
                         color: Colors.white,
-                        onPressed: null,
+                        onPressed: (){
+                          soCMND.clear();
+                          hoVaTenController.clear();
+
+                        },
                         child: Text(
                           "NHẬP LẠI",
                           style: TextStyle(color: Colors.black,fontFamily: 'Quicksand', fontWeight: FontWeight.w700),

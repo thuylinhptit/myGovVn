@@ -26,11 +26,11 @@ class Begin extends GetWidget{
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Text(
-                  "BỘ THÔNG TIN VÀ TRUYỀN THÔNG", style: TextStyle( fontSize: 18, color: Colors.white, fontFamily: 'ClanPro', fontWeight: FontWeight.w700),
+                  "BỘ THÔNG TIN VÀ TRUYỀN THÔNG", style: TextStyle( fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
               Text(
-                "MYGOVVN", style: TextStyle( fontSize: 30, color: Colors.white, fontFamily: 'ClanPro', fontWeight: FontWeight.w700),
+                "MYGOVVN", style: TextStyle( fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
               )
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class BhxhController extends GetxController{
   int count = 0;
   void checkText( String text ){
-    if( text.isAlphabetOnly ){
+    if( !text.isEmpty && ! text.isNum  ){
       count = 1;
     }
     else if( text.isEmpty ){

@@ -16,7 +16,7 @@ class MyApp  extends StatelessWidget{
       ) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SingleChildScrollView(child: HomePageScreen()),
+      home: HomePageScreen(),
     );
   }
 

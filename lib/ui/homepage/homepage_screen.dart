@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ui_mygovvn/ui/bhxh/bhxh_screen.dart';
-import 'package:ui_mygovvn/ui/setting/setting_screen.dart';
 
 class HomePageScreen extends StatelessWidget {
   @override
@@ -69,150 +68,145 @@ class HomePageScreen extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                left: 0.06 * width, top: 0.06 * height, right: 0.06 * width),
-            child: Column(
-              children: [
-                Row(
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 0.06 * width,
+                    top: 0.07 * height,
+                    right: 0.06 * width),
+                child: Row(
                   children: [
                     Expanded(
+                      flex: 1,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(BaoHiemScreen());
+                        },
+                        child: Image(
+                          width: (width - 0.16 * width) / 4 - 0.05 * width,
+                          image: AssetImage(
+                            "image/bhxh.png",
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.05 * width,
+                        image: AssetImage("image/thue.png"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.05 * width,
+                        image: AssetImage("image/diemthi.png"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.05 * width,
+                        image: AssetImage("image/chuyenmang.png"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 0.03 * width, right: 0.03 * width),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text("Tra cứu mã số BHXH",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center),
+                    ),
+                    Expanded(
                         flex: 1,
-                        child: Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.to(BaoHiemScreen());
-                              },
-                              child: Image(
-                                width:
-                                    (width - 0.16 * width) / 4 - 0.02 * width,
-                                image: AssetImage(
-                                  "image/bhxh.png",
-                                ),
-                              ),
-                            ),
-                            Text("Tra cứu mã số BHXH",
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontFamily: 'Quicksand',
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center),
-                          ],
+                        child: Text(
+                          "Tra cứu mã số thuế",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
                         )),
                     Expanded(
                         flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/thue.png"),
-                            ),
-                            Text(
-                              "Tra cứu mã số thuế",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
+                        child: Text(
+                          "Tra cứu điểm thi THPT",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
                         )),
                     Expanded(
                         flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/diemthi.png"),
-                            ),
-                            Text(
-                              "Tra cứu điểm thi THPT",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        )),
-                    Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/chuyenmang.png"),
-                            ),
-                            Text(
-                              "Tra cứu chuyển mạng giữ số",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
+                        child: Text(
+                          "Tra cứu chuyển mạng giữ số",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
                         )),
                   ],
                 ),
-                SizedBox(height: height * 0.02),
-                Row(
+              ),
+              SizedBox(height: height * 0.02),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 0.06 * width, right: 0.06 * width),
+                child: Row(
                   children: [
                     Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/tracuoc.png"),
-                            ),
-                            Text(
-                              "Tra cứu cước điện thoại",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        )),
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.02 * width,
+                        image: AssetImage("image/tracuoc.png"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
                     Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/thuebao.png"),
-                            ),
-                            Text(
-                              "Khai báo thông tin thuê bao",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        )),
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.02 * width,
+                        image: AssetImage("image/thuebao.png"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
                     Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Image(
-                              width: (width - 0.16 * width) / 4 - 0.02 * width,
-                              image: AssetImage("image/tiemchung.png"),
-                            ),
-                            Text(
-                              "Tiêm chủng",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        )),
+                      flex: 1,
+                      child: Image(
+                        width: (width - 0.16 * width) / 4 - 0.02 * width,
+                        image: AssetImage("image/tiemchung.png"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.04 * width,
+                    ),
                     Expanded(
                       flex: 1,
                       child: Image(
@@ -221,11 +215,58 @@ class HomePageScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 0.03 * width, right: 0.03 * width),
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          "Tra cứu cước điện thoại",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
+                        )),
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          "Khai báo thông tin thuê bao",
+                          style: TextStyle(
+                              fontSize: 11.5,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
+                        )),
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          "Tiêm chủng",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
+                        )),
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          "Xem thêm",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand',
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
+                        )),
+                  ],
+                ),
+              )
+            ],
           ),
-          //    SizedBox(height: 0.01*height,),
           Image(
             image: AssetImage("image/bottom_backgr.png"),
           ),
