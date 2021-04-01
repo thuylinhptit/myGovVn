@@ -19,7 +19,7 @@ class HomePageScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                     left: 0.08 * width,
-                    top: 0.08 * height,
+                    top: 0.05 * height,
                     right: 0.08 * width),
                 child: Row(
                   children: [
