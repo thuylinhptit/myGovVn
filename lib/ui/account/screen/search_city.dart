@@ -1,25 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ui_mygovvn/ui/account/controller/city_controller.dart';
+import 'package:ui_mygovvn/ui/account/screen/my_account.dart';
 
-class SearchCity extends StatefulWidget{
-
-  @override
-  _SearchCity createState() => _SearchCity();
-
-}
-class _SearchCity extends State<SearchCity>{
+class SearchCity extends GetWidget{
   TextEditingController textEditingController = TextEditingController();
+  CityController cityController = Get.put(CityController());
   static List<String> listCity = [
     "Hà Nội",
     "Hải Phòng",
     "TP Hồ Chí Minh",
   ];
   List<String> newList = List.from(listCity);
-  onItemChange ( String value){
-    setState(() {
-      newList = listCity.where((element) => element.toLowerCase().contains(value.toLowerCase())).toList();
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +32,15 @@ class _SearchCity extends State<SearchCity>{
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: TextField(
-              controller: textEditingController,
-              decoration: InputDecoration(
-                hintText: 'Tìm kiếm...',
-              ),
-              onChanged: onItemChange,
-            ),
+            child: GetBuilder<CityController>(builder: (_){
+              return TextField(
+                controller: textEditingController,
+                decoration: InputDecoration(
+                  hintText: 'Tìm kiếm...',
+                ),
+                onChanged: _.onItemChangeCity,
+              );
+            })
           ),
           Expanded(
             child: ListView(
@@ -53,7 +48,9 @@ class _SearchCity extends State<SearchCity>{
               children: newList.map((data) {
                 return ListTile(
                   title: Text(data),
-                  onTap: ()=> print(data),);
+                  onTap: (){
+                    Get.offAll(MyAccount(), arguments: data);
+                  },);
               }).toList(),
             ),
           )

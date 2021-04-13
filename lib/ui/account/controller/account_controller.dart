@@ -4,7 +4,7 @@ class AccountController extends GetxController{
   int count = 0;
   int check = 0;
   void checkEmail( String text ){
-    if( text.contains("@gmail.com") || text.length == 0) {
+    if( text.contains("@gmail.com")) {
       count = 1;
     }
     else {
@@ -14,7 +14,7 @@ class AccountController extends GetxController{
   }
 
   void checkDC( String text ){
-    if( text.length == 0 ) {
+    if( text.length > 0 ) {
       check = 1;
     }
     else {

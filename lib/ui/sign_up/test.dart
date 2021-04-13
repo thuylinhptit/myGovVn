@@ -1,89 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:easy_dialogs/easy_dialogs.dart';
 
 
-class MyApp2 extends StatelessWidget {
+class HomePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-                title: Text('Flutter Apply Search on ListView')
-            ),
-            body: Center(
-                child: ListSearch()
-            )
-        )
-    );
+  HomePageState createState() {
+    return new HomePageState();
   }
 }
 
-class ListSearch extends StatefulWidget {
-  ListSearchState createState() => ListSearchState();
-}
-
-class ListSearchState extends State<ListSearch> {
-
-  TextEditingController _textController = TextEditingController();
-
-  static List<String> mainDataList = [
-    "Apple",
-    "Apricot",
-    "Banana",
-    "Blackberry",
-    "Coconut",
-    "Date",
-    "Fig",
-    "Gooseberry",
-    "Grapes",
-    "Lemon",
-    "Litchi",
-    "Mango",
-    "Orange",
-    "Papaya",
-    "Peach",
-    "Pineapple",
-    "Pomegranate",
-    "Starfruit"
+class HomePageState extends State<HomePage> {
+  final List<String> _ringTones = [
+    'None',
+    'Callisto',
+    'Ganymede',
+    'Luna',
+    'Oberon',
+    'Phobos',
+    'Dione',
+    'Jungle Gym',
+    'Ukulele',
+    'Snowflakes',
   ];
 
-  // Copy Main List into New List.
-  List<String> newDataList = List.from(mainDataList);
 
-  onItemChanged(String value) {
-    setState(() {
-      newDataList = mainDataList
-          .where((string) => string.toLowerCase().contains(value.toLowerCase()))
-          .toList();
-    });
-  }
+  String _ringTone = "None";
+
+  Color _color = Colors.black;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                hintText: 'Search Here...',
-              ),
-              onChanged: onItemChanged,
-            ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.all(12.0),
-              children: newDataList.map((data) {
-                return ListTile(
-                  title: Text(data),
-                  onTap: ()=> print(data),);
-              }).toList(),
-            ),
-          )
-        ],
+      appBar: AppBar(
+        title: Text('Settings'),
       ),
+      body: ListTile(
+            onTap: _openRingtoneDialog,
+            title: Text(_ringTone),
+          ),
+
     );
+  }
+
+  _openRingtoneDialog() {
+    showDialog(
+        context: context,
+        builder: (context) => SingleChoiceConfirmationDialog<String>(
+            title: Text('Phone ringtone'),
+            initialValue: _ringTone,
+            items: _ringTones,
+            onSelected: _onSelected,
+            onSubmitted: _onSubmitted));
+  }
+
+
+  void _onSelected(String value) {
+    print('Selected $value');
+    setState(() {
+      _ringTone = value;
+    });
+  }
+
+  void _onSubmitted(String value) {
+    print('Submitted $value');
+    setState(() {
+      _ringTone = value;
+    });
   }
 }
