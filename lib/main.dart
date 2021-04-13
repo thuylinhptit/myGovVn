@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_mygovvn/ui/homepage/homepage_screen.dart';
+import 'package:ui_mygovvn/ui/account/screen/change_pass.dart';
+import 'package:ui_mygovvn/ui/account/screen/my_account.dart';
+
 
 
 void main (){
@@ -16,8 +18,7 @@ class MyApp  extends StatelessWidget{
       ) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePageScreen(),
+      home: MyAccount(),
     );
   }
-
 }
