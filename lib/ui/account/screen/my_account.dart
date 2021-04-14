@@ -11,40 +11,30 @@ const color0 = const Color(0xFFC6C6C8);
 const color1 = const Color(0xFFF2F2F7);
 const color2 = const Color(0xFF8898AA);
 const color3 = const Color(0xFF1E5AAA);
-final List<String> genders = [
-  'Nam',
-  'Nữ'
-];
+final List<String> genders = ['Nam', 'Nữ'];
 
-class MyAccount extends StatefulWidget{
-
+class MyAccount extends StatefulWidget {
   @override
   _MyAccount createState() => _MyAccount();
-
 }
+
 class _MyAccount extends State<MyAccount> {
   TextEditingController emailController = new TextEditingController();
   TextEditingController tinhController = new TextEditingController();
   TextEditingController huyenController = new TextEditingController();
   TextEditingController phuongController = new TextEditingController();
   TextEditingController diaChiController = new TextEditingController();
+  TextEditingController genderController = new TextEditingController();
   AccountController accountController = Get.put(AccountController());
   DateTime picker = DateTime.now();
   String gender = 'Nam';
 
   @override
   Widget build(BuildContext context) {
-    print(Get.arguments);
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    print("CONTROLLER ${tinhController.text}");
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
-  //    resizeToAvoidBottomPadding: false,
       appBar: AppBar(
           title: Text(
             "Tài Khoản Của Tôi",
@@ -281,11 +271,10 @@ class _MyAccount extends State<MyAccount> {
                                 fontWeight: FontWeight.w400),
                           ),
                           TextField(
-                            controller: tinhController,
+                            controller: genderController,
                             readOnly: true,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: gender,
                               hintText: gender,
                               hintStyle: TextStyle(
                                 fontSize: 16,
@@ -303,12 +292,14 @@ class _MyAccount extends State<MyAccount> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconButton(icon: Icon(
-                            Icons.keyboard_arrow_down_outlined,
-                            color: color2,
-                          ), onPressed: (){
-                            _openRingtoneDialog();
-                          })
+                          IconButton(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                color: color2,
+                              ),
+                              onPressed: () {
+                                _openRingtoneDialog();
+                              })
                         ],
                       ),
                     )
@@ -344,50 +335,51 @@ class _MyAccount extends State<MyAccount> {
                                 fontWeight: FontWeight.w400),
                           ),
                           GetBuilder<AccountController>(builder: (_) {
-
-                            return _.count == 1 ?
-                                TextField(
-                                  controller: emailController,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Nhập email",
-                                    hintStyle: TextStyle(
-                                      fontSize: 14,
-                                      color: color2,
-                                      fontFamily: 'Quicksand',
-                                      fontWeight: FontWeight.w500,
+                            return _.count == 1
+                                ? TextField(
+                                    controller: emailController,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Nhập email",
+                                      hintStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: color2,
+                                        fontFamily: 'Quicksand',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  onChanged: (value) {
-                                    accountController.checkEmail(value);
-                                  },
-
-                            ): Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                TextField(
-                                  controller: emailController,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Nhập email",
-                                    hintStyle: TextStyle(
-                                      fontSize: 14,
-                                      color: color2,
-                                      fontFamily: 'Quicksand',
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  onChanged: (value) {
-                                    accountController.checkEmail(value);
-                                  },
-                                ),
-                               Text("Chưa đúng định dạng Email",style: TextStyle(
-                                      fontSize: 13,
-                                      color: Colors.red,
-                                      fontFamily: 'Quicksand',
-                                      fontWeight: FontWeight.w400)),
-                              ],
-                            );
+                                    onChanged: (value) {
+                                      accountController.checkEmail(value);
+                                    },
+                                  )
+                                : Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextField(
+                                        controller: emailController,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: "Nhập email",
+                                          hintStyle: TextStyle(
+                                            fontSize: 14,
+                                            color: color2,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        onChanged: (value) {
+                                          accountController.checkEmail(value);
+                                        },
+                                      ),
+                                      Text("Chưa đúng định dạng Email",
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              color: Colors.red,
+                                              fontFamily: 'Quicksand',
+                                              fontWeight: FontWeight.w400)),
+                                    ],
+                                  );
                           }),
                         ],
                       ),
@@ -401,7 +393,7 @@ class _MyAccount extends State<MyAccount> {
                   children: [
                     Container(
                       height: height * 0.075,
-                      // padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
@@ -428,7 +420,6 @@ class _MyAccount extends State<MyAccount> {
                             readOnly: true,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: Get.arguments,
                               hintText: "Chọn Tỉnh/Thành phố",
                               hintStyle: TextStyle(
                                 fontSize: 16,
@@ -446,12 +437,15 @@ class _MyAccount extends State<MyAccount> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconButton(icon: Icon(
-                            Icons.keyboard_arrow_down_outlined,
-                            color: color2,
-                          ), onPressed: (){
-                            Get.to(SearchCity());
-                          })
+                          IconButton(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                color: color2,
+                              ),
+                              onPressed: () async {
+                              final data = await  Get.to(SearchCity());
+                              tinhController.text = data;
+                              })
                         ],
                       ),
                     )
@@ -491,7 +485,6 @@ class _MyAccount extends State<MyAccount> {
                             readOnly: true,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: Get.arguments,
                               hintText: "Chọn Quận/Huyện",
                               hintStyle: TextStyle(
                                 fontSize: 16,
@@ -509,12 +502,15 @@ class _MyAccount extends State<MyAccount> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconButton(icon: Icon(
-                            Icons.keyboard_arrow_down_outlined,
-                            color: color2,
-                          ), onPressed: (){
-                            Get.to(SearchQuan());
-                          })
+                          IconButton(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                color: color2,
+                              ),
+                              onPressed: () async{
+                                final data = await Get.to(SearchQuan());
+                                huyenController.text = data;
+                              })
                         ],
                       ),
                     )
@@ -554,7 +550,6 @@ class _MyAccount extends State<MyAccount> {
                             readOnly: true,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: Get.arguments,
                               hintText: "Chọn Phường/Xã",
                               hintStyle: TextStyle(
                                 fontSize: 16,
@@ -572,12 +567,15 @@ class _MyAccount extends State<MyAccount> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconButton(icon: Icon(
-                            Icons.keyboard_arrow_down_outlined,
-                            color: color2,
-                          ), onPressed: (){
-                            Get.to(SearchPhuong());
-                          })
+                          IconButton(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                color: color2,
+                              ),
+                              onPressed: () async {
+                                final data = await Get.to(SearchPhuong());
+                                phuongController.text = data;
+                              })
                         ],
                       ),
                     )
@@ -613,50 +611,51 @@ class _MyAccount extends State<MyAccount> {
                                 fontWeight: FontWeight.w400),
                           ),
                           GetBuilder<AccountController>(builder: (_) {
-
-                            return _.check == 1 ?
-                            TextField(
-                              controller: diaChiController,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Nhập địa chỉ",
-                                hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  color: color2,
-                                  fontFamily: 'Quicksand',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              onChanged: (value) {
-                                accountController.checkDC(value);
-                              },
-
-                            ): Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                TextField(
-                                  controller: diaChiController,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Nhập địa chỉ",
-                                    hintStyle: TextStyle(
-                                      fontSize: 14,
-                                      color: color2,
-                                      fontFamily: 'Quicksand',
-                                      fontWeight: FontWeight.w500,
+                            return _.check == 1
+                                ? TextField(
+                                    controller: diaChiController,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Nhập địa chỉ",
+                                      hintStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: color2,
+                                        fontFamily: 'Quicksand',
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  onChanged: (value) {
-                                    accountController.checkDC(value);
-                                  },
-                                ),
-                                Text("Địa chỉ không được để trống",style: TextStyle(
-                                    fontSize: 13,
-                                    color: Colors.red,
-                                    fontFamily: 'Quicksand',
-                                    fontWeight: FontWeight.w400)),
-                              ],
-                            );
+                                    onChanged: (value) {
+                                      accountController.checkDC(value);
+                                    },
+                                  )
+                                : Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextField(
+                                        controller: diaChiController,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: "Nhập địa chỉ",
+                                          hintStyle: TextStyle(
+                                            fontSize: 14,
+                                            color: color2,
+                                            fontFamily: 'Quicksand',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        onChanged: (value) {
+                                          accountController.checkDC(value);
+                                        },
+                                      ),
+                                      Text("Địa chỉ không được để trống",
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              color: Colors.red,
+                                              fontFamily: 'Quicksand',
+                                              fontWeight: FontWeight.w400)),
+                                    ],
+                                  );
                           }),
                         ],
                       ),
@@ -664,7 +663,7 @@ class _MyAccount extends State<MyAccount> {
                   ],
                 ),
                 SizedBox(
-                  height: height*0.08,
+                  height: height * 0.08,
                 ),
               ],
             ),
@@ -676,52 +675,55 @@ class _MyAccount extends State<MyAccount> {
         child: GetBuilder<AccountController>(builder: (_) {
           print("COUNT");
           print(_.count);
-          return _.count == 0 ? ButtonTheme(
-            height: height * 0.05,
-            minWidth: width * 0.9,
-            child: FlatButton(
-              color: color3,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              onPressed: () {
-              },
-              child: Text(
-                "XÁC NHẬN",
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontFamily: 'Quicksand',
-                    fontWeight: FontWeight.w700),
-              ),
-            ),
-          ) : ButtonTheme(
-            height: height * 0.05,
-            minWidth: width * 0.9,
-            child: FlatButton(
-              color: color3,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              onPressed: () {
-              },
-              child: Text(
-                "XÁC NHẬN",
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontFamily: 'Quicksand',
-                    fontWeight: FontWeight.w700),
-              ),
-            ),
-          );
+          return _.count == 0
+              ? ButtonTheme(
+                  height: height * 0.05,
+                  minWidth: width * 0.9,
+                  child: FlatButton(
+                    color: color3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    onPressed: () {},
+                    child: Text(
+                      "XÁC NHẬN",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                )
+              : ButtonTheme(
+                  height: height * 0.05,
+                  minWidth: width * 0.9,
+                  child: FlatButton(
+                    color: color3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    onPressed: () {},
+                    child: Text(
+                      "XÁC NHẬN",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontFamily: 'Quicksand',
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                );
         }),
       ),
     );
   }
 
   chooseDate() async {
-    DateTime date = await showDatePicker(context: context , initialDate: picker,
-        firstDate: DateTime(DateTime.now().year-5), lastDate: DateTime(DateTime.now().year+5));
-    if( date != null ){
+    DateTime date = await showDatePicker(
+        context: context,
+        initialDate: picker,
+        firstDate: DateTime(DateTime.now().year - 5),
+        lastDate: DateTime(DateTime.now().year + 5));
+    if (date != null) {
       setState(() {
         picker = date;
       });
@@ -739,19 +741,17 @@ class _MyAccount extends State<MyAccount> {
             onSubmitted: _onSubmitted));
   }
 
-
   void _onSelected(String value) {
     print('Selected $value');
     setState(() {
-      gender = value;
+      genderController.text = value;
     });
   }
 
   void _onSubmitted(String value) {
     print('Submitted $value');
     setState(() {
-      gender = value;
+      genderController.text = value;
     });
   }
-
 }

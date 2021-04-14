@@ -49,7 +49,7 @@ class SearchPhuong extends GetWidget{
                 return ListTile(
                   title: Text(data),
                   onTap: (){
-                    Get.offAll(MyAccount(), arguments: data);
+                    Get.back(result: data);
                   });
               }).toList(),
             ),
